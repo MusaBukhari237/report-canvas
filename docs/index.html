@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Build a chart from CSV | Report Canvas</title>
+  <meta name="description" content="Group and filter records, compare totals, and save a reusable report setup. The browser processes your file locally.">
+  <link rel="canonical" href="https://musabukhari237.github.io/report-canvas/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Build a chart from CSV | Report Canvas">
+  <meta property="og:description" content="Group and filter records, compare totals, and save a reusable report setup. The browser processes your file locally.">
+  <meta property="og:url" content="https://musabukhari237.github.io/report-canvas/">
+  <meta property="og:image" content="https://musabukhari237.github.io/report-canvas/preview.png">
+  <meta property="og:image:alt" content="Report Canvas displaying a synthetic example result">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="app.css">
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+<header><a href="./" class="brand"><img src="logo.svg" alt="">Report Canvas</a><a href="https://github.com/MusaBukhari237/report-canvas" class="small-link">GitHub repository</a></header>
+<main>
+<section class="lead"><h1>Build a chart from CSV</h1><p>Group and filter records, compare totals, and save a reusable report setup. The browser processes your file locally.</p></section>
+<div class="workspace">
+  <section class="panel" aria-labelledby="settings"><h2 id="settings">Data and report setup</h2>
+    <div class="inputs"><label class="wide">CSV data<textarea id="source" rows="7" maxlength="1000000" placeholder="Channel,Quarter,Units" spellcheck="false"></textarea></label><label class="wide">Report title<input id="title" maxlength="90" value="Quarterly activity"></label><label>Group by<select id="category"></select></label><label>Calculation<select id="operation"><option value="sum">Sum measure</option><option value="count">Count rows</option></select></label><label>Numeric measure<select id="measure"></select></label><label>Filter field<select id="filter"></select></label><label>Filter value<input id="match" maxlength="300" placeholder="Exact match, ignoring case"></label><label>Top groups<input id="limit" type="number" min="1" max="30" value="10"></label><details class="wide"><summary>Load a saved setup</summary><label class="wide">Setup JSON<textarea id="spec" rows="3" maxlength="20000" placeholder="Paste the setup exported by this app" spellcheck="false"></textarea></label><button class="quiet" id="apply" type="button">Apply saved setup</button></details></div>
+    <div class="actions"><button type="button" id="run">Build report</button><button type="button" id="sample" class="quiet">Load sales example</button></div>
+    <small>Save a reusable report setup and export the grouped table. The setup file contains field names and filter values.</small>
+  </section>
+  <section class="panel" aria-labelledby="result-title"><h2 id="result-title">Report</h2>
+    <div class="result" id="result"><p class="result-summary" aria-live="polite">Load an example or paste your own input.</p></div>
+  </section>
+</div>
+</main>
+<footer><a class="small-link" href="https://github.com/MusaBukhari237/report-canvas/blob/main/LICENSE">MIT license</a></footer>
+</body>
+</html>
