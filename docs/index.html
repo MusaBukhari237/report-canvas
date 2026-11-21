@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-app="report-canvas">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <title>Build a chart from CSV | Report Canvas</title>
   <meta name="description" content="Group and filter records, compare totals, and save a reusable report setup. The browser processes your file locally.">
   <link rel="canonical" href="https://musabukhari237.github.io/report-canvas/">
@@ -17,22 +17,26 @@
   <link rel="icon" href="logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="app.css">
   <script type="module" src="app.mjs"></script>
+  <script type="module" src="experience.mjs"></script>
+  <script type="module" src="experience.mjs"></script>
 </head>
 <body>
-<header><a href="./" class="brand"><img src="logo.svg" alt="">Report Canvas</a><a href="https://github.com/MusaBukhari237/report-canvas" class="small-link">GitHub repository</a></header>
+<a class="skip" href="#workspace">Skip to workspace</a>
+<header><a class="brand" href="./"><img src="logo.svg" alt="">Report Canvas</a><nav aria-label="Main"><a href="#guide">How to use</a><a class="repo" href="https://github.com/MusaBukhari237/report-canvas">GitHub ↗</a></nav></header>
 <main>
-<section class="lead"><h1>Build a chart from CSV</h1><p>Group and filter records, compare totals, and save a reusable report setup. The browser processes your file locally.</p></section>
-<div class="workspace">
-  <section class="panel" aria-labelledby="settings"><h2 id="settings">Data and report setup</h2>
+<section class="masthead"><div class="intro"><p class="category">The reporting studio</p><h1>Find the story in the rows.</h1><p class="description">Turn a CSV into a focused chart and grouped table. Keep the setup for your next report.</p></div><figure class="scene"><img src="Scene.jpg" alt="Paper and a pen in a working notebook" width="1000" height="667" fetchpriority="high"></figure></section>
+<div class="workspace" id="workspace">
+  <section class="panel" aria-labelledby="settings"><h2 id="settings">Data & composition</h2>
     <div class="inputs"><label class="wide">CSV data<textarea id="source" rows="7" maxlength="1000000" placeholder="Channel,Quarter,Units" spellcheck="false"></textarea></label><label class="wide">Report title<input id="title" maxlength="90" value="Quarterly activity"></label><label>Group by<select id="category"></select></label><label>Calculation<select id="operation"><option value="sum">Sum measure</option><option value="count">Count rows</option></select></label><label>Numeric measure<select id="measure"></select></label><label>Filter field<select id="filter"></select></label><label>Filter value<input id="match" maxlength="300" placeholder="Exact match, ignoring case"></label><label>Top groups<input id="limit" type="number" min="1" max="30" value="10"></label><details class="wide"><summary>Load a saved setup</summary><label class="wide">Setup JSON<textarea id="spec" rows="3" maxlength="20000" placeholder="Paste the setup exported by this app" spellcheck="false"></textarea></label><button class="quiet" id="apply" type="button">Apply saved setup</button></details></div>
     <div class="actions"><button type="button" id="run">Build report</button><button type="button" id="sample" class="quiet">Load sales example</button></div>
     <small>Save a reusable report setup and export the grouped table. The setup file contains field names and filter values.</small>
   </section>
-  <section class="panel" aria-labelledby="result-title"><h2 id="result-title">Report</h2>
+  <section class="panel" aria-labelledby="result-title" id="output-panel"><h2 id="result-title" tabindex="-1">Your report</h2><p class="result-status" id="result-status" aria-live="polite">Ready when you are</p>
     <div class="result" id="result"><p class="result-summary" aria-live="polite">Load an example or paste your own input.</p></div>
   </section>
 </div>
+<details class="guide" id="guide"><summary>How to use Report Canvas</summary><ol><li>Paste a CSV and choose the category and value columns.</li><li>Add a filter or change the aggregation.</li><li>Build the report and export a reusable setup without the data rows.</li></ol></details>
 </main>
-<footer><a class="small-link" href="https://github.com/MusaBukhari237/report-canvas/blob/main/LICENSE">MIT license</a></footer>
+<footer><span>Report Canvas · <a href="https://github.com/MusaBukhari237/report-canvas/blob/main/LICENSE">MIT licensed</a></span><span class="credits"><a href="https://www.leadceleris.com/">LeadCeleris</a><a href="https://www.aifficiento.biz/">AIFFICIENTO</a><a href="Assets.md">Photo credits</a></span></footer>
 </body>
 </html>
